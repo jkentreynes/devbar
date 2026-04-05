@@ -1,0 +1,2 @@
+// Tool.swift - superseded by ToolModels.swift
+import SwiftUI
