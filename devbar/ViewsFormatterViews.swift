@@ -227,28 +227,37 @@ struct XMLFormatterView: View {
     }
     
     func formatXML() {
-        // Basic XML formatting
         var result = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         result = result.replacingOccurrences(of: "><", with: ">\n<")
-        
+
         var formatted = ""
         var indentLevel = 0
         let indent = String(repeating: " ", count: indentSpaces)
-        
+
         for line in result.components(separatedBy: "\n") {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
-            
+            guard !trimmed.isEmpty else { continue }
+
             if trimmed.hasPrefix("</") {
+                // Closing tag: dedent first
                 indentLevel = max(0, indentLevel - 1)
-            }
-            
-            formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
-            
-            if trimmed.hasPrefix("<") && !trimmed.hasPrefix("</") && !trimmed.hasSuffix("/>") {
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasSuffix("/>") || trimmed.hasPrefix("<?") || trimmed.hasPrefix("<!--") || trimmed.hasPrefix("<!") {
+                // Self-closing, declaration, comment: no indent change
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasPrefix("<") && trimmed.contains("</") {
+                // Inline element with content and closing tag on same line
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasPrefix("<") {
+                // Opening tag: write then indent children
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
                 indentLevel += 1
+            } else {
+                // Text content
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
             }
         }
-        
+
         outputText = formatted.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
@@ -263,8 +272,32 @@ struct YAMLFormatterView: View {
             title: "YAML Formatter",
             inputText: $inputText,
             outputText: $outputText,
-            formatAction: { outputText = inputText.trimmingCharacters(in: .whitespacesAndNewlines) }
+            formatAction: formatYAML
         )
+    }
+
+    func formatYAML() {
+        let lines = inputText.components(separatedBy: .newlines)
+        let formatted = lines.map { line -> String in
+            let trimmed = line.trimmingCharacters(in: .whitespaces)
+            // Preserve empty lines and comments as-is
+            if trimmed.isEmpty || trimmed.hasPrefix("#") {
+                return line
+            }
+            // Normalize spacing around colon in key: value pairs (skip URLs with ://)
+            if let colonRange = trimmed.range(of: ":"),
+               !trimmed[colonRange.upperBound...].hasPrefix("/") {
+                let afterColon = trimmed[colonRange.upperBound...]
+                if afterColon.isEmpty || afterColon.first != " " {
+                    let leadingSpaces = line.prefix(while: { $0 == " " })
+                    let key = String(trimmed[..<colonRange.lowerBound])
+                    let value = afterColon.trimmingCharacters(in: .whitespaces)
+                    return leadingSpaces + key + ": " + value
+                }
+            }
+            return line
+        }
+        outputText = formatted.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -283,13 +316,29 @@ struct SQLFormatterView: View {
     }
     
     func formatSQL() {
-        var result = inputText
-        let keywords = ["SELECT", "FROM", "WHERE", "JOIN", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "ON", "GROUP BY", "ORDER BY", "HAVING", "LIMIT", "OFFSET", "INSERT INTO", "VALUES", "UPDATE", "SET", "DELETE FROM"]
-        
+        // Normalize whitespace first
+        var result = inputText.components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+
+        // Keywords to place on new lines (order matters: longer phrases first)
+        let keywords = [
+            "INSERT INTO", "DELETE FROM", "CREATE TABLE", "DROP TABLE", "ALTER TABLE",
+            "LEFT OUTER JOIN", "RIGHT OUTER JOIN", "FULL OUTER JOIN",
+            "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "CROSS JOIN",
+            "GROUP BY", "ORDER BY", "UNION ALL",
+            "SELECT", "FROM", "WHERE", "JOIN", "ON", "SET",
+            "HAVING", "LIMIT", "OFFSET", "VALUES", "UPDATE", "UNION"
+        ]
+
         for keyword in keywords {
-            result = result.replacingOccurrences(of: keyword, with: "\n" + keyword, options: .caseInsensitive)
+            let pattern = "(?i)\\b\(NSRegularExpression.escapedPattern(for: keyword))\\b"
+            if let regex = try? NSRegularExpression(pattern: pattern) {
+                let range = NSRange(result.startIndex..., in: result)
+                result = regex.stringByReplacingMatches(in: result, range: range, withTemplate: "\n\(keyword.uppercased())")
+            }
         }
-        
+
         outputText = result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
@@ -304,8 +353,46 @@ struct GraphQLFormatterView: View {
             title: "GraphQL Formatter",
             inputText: $inputText,
             outputText: $outputText,
-            formatAction: { outputText = inputText.trimmingCharacters(in: .whitespacesAndNewlines) }
+            formatAction: formatGraphQL
         )
+    }
+
+    func formatGraphQL() {
+        // Normalize all whitespace into single spaces
+        let normalized = inputText.components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+
+        var result = ""
+        var indentLevel = 0
+        let indent = "  "
+
+        for char in normalized {
+            switch char {
+            case "{":
+                result += " {\n"
+                indentLevel += 1
+                result += String(repeating: indent, count: indentLevel)
+            case "}":
+                // Trim trailing spaces from last line
+                while result.hasSuffix(" ") { result = String(result.dropLast()) }
+                if !result.hasSuffix("\n") { result += "\n" }
+                indentLevel = max(0, indentLevel - 1)
+                result += String(repeating: indent, count: indentLevel) + "}"
+                result += indentLevel > 0 ? "\n" + String(repeating: indent, count: indentLevel) : "\n"
+            case ",":
+                while result.hasSuffix(" ") { result = String(result.dropLast()) }
+                result += "\n" + String(repeating: indent, count: indentLevel)
+            case " ":
+                if !result.hasSuffix(" ") && !result.hasSuffix("\n") {
+                    result += " "
+                }
+            default:
+                result += String(char)
+            }
+        }
+
+        outputText = result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -319,8 +406,48 @@ struct TOMLFormatterView: View {
             title: "TOML Formatter",
             inputText: $inputText,
             outputText: $outputText,
-            formatAction: { outputText = inputText.trimmingCharacters(in: .whitespacesAndNewlines) }
+            formatAction: formatTOML
         )
+    }
+
+    func formatTOML() {
+        let lines = inputText.components(separatedBy: .newlines)
+        var formatted: [String] = []
+
+        for line in lines {
+            let trimmed = line.trimmingCharacters(in: .whitespaces)
+
+            if trimmed.isEmpty {
+                // Collapse multiple blank lines into one
+                if formatted.last != "" { formatted.append("") }
+                continue
+            }
+
+            // Comments: preserve as-is
+            if trimmed.hasPrefix("#") {
+                formatted.append(trimmed)
+                continue
+            }
+
+            // Section headers [section] or [[array]]
+            if trimmed.hasPrefix("[") {
+                if !formatted.isEmpty && formatted.last != "" { formatted.append("") }
+                formatted.append(trimmed)
+                continue
+            }
+
+            // key = value: normalize spacing around =
+            if let eqRange = trimmed.range(of: "="), !trimmed.hasPrefix("=") {
+                let key = trimmed[..<eqRange.lowerBound].trimmingCharacters(in: .whitespaces)
+                let value = trimmed[eqRange.upperBound...].trimmingCharacters(in: .whitespaces)
+                formatted.append("\(key) = \(value)")
+                continue
+            }
+
+            formatted.append(trimmed)
+        }
+
+        outputText = formatted.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -339,13 +466,51 @@ struct CSVFormatterView: View {
     }
     
     func formatCSV() {
-        let lines = inputText.components(separatedBy: .newlines)
-        let formatted = lines.map { line in
-            line.components(separatedBy: ",")
-                .map { $0.trimmingCharacters(in: .whitespaces) }
-                .joined(separator: ", ")
+        let lines = inputText.components(separatedBy: .newlines).filter { !$0.isEmpty }
+        guard !lines.isEmpty else { outputText = ""; return }
+
+        let rows = lines.map { line -> [String] in
+            // Basic CSV parse: split on commas, respect quoted fields
+            var fields: [String] = []
+            var current = ""
+            var inQuotes = false
+            for char in line {
+                if char == "\"" {
+                    inQuotes.toggle()
+                } else if char == "," && !inQuotes {
+                    fields.append(current.trimmingCharacters(in: .whitespaces))
+                    current = ""
+                } else {
+                    current.append(char)
+                }
+            }
+            fields.append(current.trimmingCharacters(in: .whitespaces))
+            return fields
         }
-        outputText = formatted.joined(separator: "\n")
+
+        let maxCols = rows.map { $0.count }.max() ?? 0
+        var colWidths = Array(repeating: 0, count: maxCols)
+        for row in rows {
+            for (i, cell) in row.enumerated() {
+                colWidths[i] = max(colWidths[i], cell.count)
+            }
+        }
+
+        var resultLines = rows.map { row -> String in
+            let padded = (0..<maxCols).map { i -> String in
+                let cell = i < row.count ? row[i] : ""
+                return cell.padding(toLength: colWidths[i], withPad: " ", startingAt: 0)
+            }
+            return padded.joined(separator: " | ")
+        }
+
+        // Insert header separator after first row
+        if resultLines.count > 1 {
+            let separator = colWidths.map { String(repeating: "-", count: $0) }.joined(separator: "-+-")
+            resultLines.insert(separator, at: 1)
+        }
+
+        outputText = resultLines.joined(separator: "\n")
     }
 }
 
@@ -365,29 +530,48 @@ struct HTMLFormatterView: View {
         )
     }
     
+    let voidElements: Set<String> = [
+        "area", "base", "br", "col", "embed", "hr", "img", "input",
+        "link", "meta", "param", "source", "track", "wbr"
+    ]
+
+    func tagName(from line: String) -> String {
+        let stripped = line.drop(while: { $0 == "<" || $0 == "/" })
+        return String(stripped.prefix(while: { !$0.isWhitespace && $0 != ">" && $0 != "/" })).lowercased()
+    }
+
     func formatHTML() {
         var result = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         result = result.replacingOccurrences(of: "><", with: ">\n<")
-        
+
         var formatted = ""
         var indentLevel = 0
         let indent = String(repeating: " ", count: indentSpaces)
-        
+
         for line in result.components(separatedBy: "\n") {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
-            
+            guard !trimmed.isEmpty else { continue }
+
+            let name = tagName(from: trimmed)
+            let isVoid = voidElements.contains(name)
+
             if trimmed.hasPrefix("</") {
                 indentLevel = max(0, indentLevel - 1)
-            }
-            
-            formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
-            
-            if trimmed.hasPrefix("<") && !trimmed.hasPrefix("</") && !trimmed.hasSuffix("/>") && !trimmed.contains("br") && !trimmed.contains("img") && !trimmed.contains("input") {
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasSuffix("/>") || isVoid || trimmed.hasPrefix("<!") || trimmed.hasPrefix("<?") {
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasPrefix("<") && trimmed.contains("</") {
+                // Inline: <tag>content</tag>
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
+            } else if trimmed.hasPrefix("<") {
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
                 indentLevel += 1
+            } else {
+                formatted += String(repeating: indent, count: indentLevel) + trimmed + "\n"
             }
         }
-        
-        outputText = formatted
+
+        outputText = formatted.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -406,11 +590,36 @@ struct CSSFormatterView: View {
     }
     
     func formatCSS() {
-        var result = inputText
-        result = result.replacingOccurrences(of: "{", with: " {\n  ")
-        result = result.replacingOccurrences(of: ";", with: ";\n  ")
-        result = result.replacingOccurrences(of: "}", with: "\n}\n")
-        outputText = result
+        // Normalize whitespace
+        var result = inputText.components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+
+        // Ensure single space before {
+        if let regex = try? NSRegularExpression(pattern: "\\s*\\{") {
+            result = regex.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: " {")
+        }
+        // Newline + indent after {
+        result = result.replacingOccurrences(of: "{ ", with: "{\n  ")
+        result = result.replacingOccurrences(of: "{}", with: "{ }")
+        // Newline + indent after each ;
+        if let regex = try? NSRegularExpression(pattern: ";\\s*(?!\\s*\\})") {
+            result = regex.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: ";\n  ")
+        }
+        // Last property before } — trim trailing spaces and close
+        if let regex = try? NSRegularExpression(pattern: ";\\s*\\}") {
+            result = regex.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: ";\n}")
+        }
+        // Newline after }
+        if let regex = try? NSRegularExpression(pattern: "\\}\\s*") {
+            result = regex.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: "}\n\n")
+        }
+        // Normalize space after colon in properties (not pseudo-selectors)
+        if let regex = try? NSRegularExpression(pattern: ":\\s+") {
+            result = regex.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: ": ")
+        }
+
+        outputText = result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -443,9 +652,10 @@ struct MarkdownPreviewView: View {
                     .padding(.top, 12)
                 
                 ScrollView {
-                    Text(inputText)
+                    Text((try? AttributedString(markdown: inputText, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .full))) ?? AttributedString(inputText))
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
                 }
                 .background(Color(nsColor: .textBackgroundColor))
                 .padding(.horizontal)

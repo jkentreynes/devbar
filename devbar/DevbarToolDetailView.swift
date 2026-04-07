@@ -36,6 +36,8 @@ struct DevbarToolDetailView: View {
             // Tool content
             Group {
                 switch tool.view {
+                case .cronExpressionParser:
+                    CronExpressionParserView()
                 case .base64Encoder:
                     Base64EncoderView()
                 case .base64Decoder:
@@ -72,6 +74,62 @@ struct DevbarToolDetailView: View {
                     UUIDGeneratorView()
                 case .passwordGenerator:
                     PasswordGeneratorView()
+                case .jsonFormatter:
+                    JSONFormatterView()
+                case .jsonMinifier:
+                    JSONMinifierView()
+                case .xmlFormatter:
+                    XMLFormatterView()
+                case .yamlFormatter:
+                    YAMLFormatterView()
+                case .sqlFormatter:
+                    SQLFormatterView()
+                case .graphqlFormatter:
+                    GraphQLFormatterView()
+                case .tomlFormatter:
+                    TOMLFormatterView()
+                case .csvFormatter:
+                    CSVFormatterView()
+                case .markdownPreview:
+                    MarkdownPreviewView()
+                case .htmlFormatter:
+                    HTMLFormatterView()
+                case .cssFormatter:
+                    CSSFormatterView()
+                case .jsonYamlConverter:
+                    JSONYAMLConverterView()
+                case .xmlJsonConverter:
+                    XMLJSONConverterView()
+                case .jsonCsvConverter:
+                    JSONCSVConverterView()
+                case .numberBaseConverter:
+                    NumberBaseConverterView()
+                case .unixTimestampConverter:
+                    UnixTimestampConverterView()
+                case .colorConverter:
+                    ColorConverterView()
+                case .cssUnitsConverter:
+                    CSSUnitsConverterView()
+                case .csvMarkdownConverter:
+                    CSVMarkdownConverterView()
+                case .caseConverter:
+                    CaseConverterView()
+                case .lineSorter:
+                    LineSorterView()
+                case .duplicateLineRemover:
+                    DuplicateLineRemoverView()
+                case .regexTester:
+                    RegexTesterView()
+                case .wordCharCounter:
+                    WordCharCounterView()
+                case .textDiffViewer:
+                    TextDiffView()
+                case .loremIpsumGenerator:
+                    LoremIpsumGeneratorView()
+                case .slugGenerator:
+                    SlugGeneratorView()
+                case .jsonEscapeUnescape:
+                    JSONEscapeUnescapeView()
                 }
             }
         }

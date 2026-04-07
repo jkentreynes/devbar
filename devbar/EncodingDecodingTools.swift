@@ -550,3 +550,393 @@ struct EncodingToolTemplate: View {
         }
     }
 }
+
+// MARK: - Cron Expression Parser
+
+struct CronExpressionParserView: View {
+    @State private var expression = "*/5 * * * *"
+    @State private var result: CronParseResult? = nil
+    @State private var error = ""
+    @State private var nextDates: [Date] = []
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+
+                // Input
+                VStack(alignment: .leading, spacing: 8) {
+                    Label("Cron Expression", systemImage: "clock.badge.checkmark")
+                        .font(.subheadline).fontWeight(.medium)
+
+                    HStack(spacing: 8) {
+                        TextField("e.g.  */5 * * * *", text: $expression)
+                            .textFieldStyle(.roundedBorder)
+                            .font(.system(.body, design: .monospaced))
+                        Button("Parse", action: parse)
+                            .buttonStyle(.borderedProminent)
+                    }
+
+                    // Field labels
+                    HStack(spacing: 0) {
+                        ForEach(["Minute", "Hour", "Day", "Month", "Weekday"], id: \.self) { label in
+                            Text(label)
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .padding(.horizontal, 4)
+
+                    if !error.isEmpty {
+                        Text(error).font(.caption).foregroundStyle(.red)
+                    }
+                }
+                .padding()
+                .background(Color(nsColor: .controlBackgroundColor).opacity(0.3))
+
+                Divider()
+
+                // Quick presets
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Presets").font(.caption).foregroundStyle(.secondary)
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 6) {
+                        ForEach(CronExpressionParserView.presets, id: \.0) { label, expr in
+                            Button {
+                                expression = expr
+                                parse()
+                            } label: {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(label).font(.caption).fontWeight(.medium)
+                                    Text(expr).font(.system(.caption2, design: .monospaced)).foregroundStyle(.secondary)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                    }
+                }
+                .padding()
+
+                if let r = result {
+                    Divider()
+
+                    // Human-readable description
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label("Description", systemImage: "text.bubble")
+                            .font(.subheadline).fontWeight(.medium)
+                        Text(r.description)
+                            .font(.body)
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color(nsColor: .textBackgroundColor))
+                            .cornerRadius(8)
+                    }
+                    .padding()
+
+                    Divider()
+
+                    // Field breakdown
+                    VStack(alignment: .leading, spacing: 8) {
+                        Label("Field Breakdown", systemImage: "list.bullet.rectangle")
+                            .font(.subheadline).fontWeight(.medium)
+
+                        VStack(spacing: 0) {
+                            ForEach(r.fields, id: \.name) { field in
+                                HStack(spacing: 12) {
+                                    Text(field.name)
+                                        .font(.caption).foregroundStyle(.secondary)
+                                        .frame(width: 72, alignment: .trailing)
+                                    Text(field.raw)
+                                        .font(.system(.body, design: .monospaced))
+                                        .frame(width: 80, alignment: .leading)
+                                    Text(field.meaning)
+                                        .font(.caption)
+                                        .foregroundStyle(.primary)
+                                    Spacer()
+                                }
+                                .padding(.horizontal).padding(.vertical, 8)
+                                Divider()
+                            }
+                        }
+                        .background(Color(nsColor: .textBackgroundColor))
+                        .cornerRadius(8)
+                    }
+                    .padding()
+
+                    Divider()
+
+                    // Next 10 scheduled runs
+                    VStack(alignment: .leading, spacing: 8) {
+                        Label("Next 10 Scheduled Runs  (from now, UTC)", systemImage: "calendar.badge.clock")
+                            .font(.subheadline).fontWeight(.medium)
+
+                        VStack(spacing: 0) {
+                            ForEach(Array(nextDates.enumerated()), id: \.offset) { i, date in
+                                HStack {
+                                    Text("#\(i + 1)")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                        .frame(width: 28, alignment: .trailing)
+                                    Text(formatDate(date))
+                                        .font(.system(.body, design: .monospaced))
+                                    Spacer()
+                                    Text(relativeTime(date))
+                                        .font(.caption).foregroundStyle(.secondary)
+                                }
+                                .padding(.horizontal).padding(.vertical, 7)
+                                Divider()
+                            }
+                        }
+                        .background(Color(nsColor: .textBackgroundColor))
+                        .cornerRadius(8)
+                    }
+                    .padding()
+                }
+            }
+        }
+        .onAppear { parse() }
+    }
+
+    // MARK: - Parse
+
+    func parse() {
+        error = ""
+        result = nil
+        nextDates = []
+        let parts = expression.trimmingCharacters(in: .whitespaces)
+            .components(separatedBy: .whitespaces)
+            .filter { !$0.isEmpty }
+
+        guard parts.count == 5 else {
+            error = "❌ A cron expression needs exactly 5 fields: minute hour day month weekday"
+            return
+        }
+
+        let fieldDefs: [(String, ClosedRange<Int>, String)] = [
+            ("Minute",  0...59,  "0–59"),
+            ("Hour",    0...23,  "0–23"),
+            ("Day",     1...31,  "1–31"),
+            ("Month",   1...12,  "1–12"),
+            ("Weekday", 0...6,   "0–6 (Sun–Sat)"),
+        ]
+        let monthNames = ["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        let dayNames   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+
+        var fields: [CronField] = []
+        for (i, (name, range, hint)) in fieldDefs.enumerated() {
+            let raw = parts[i]
+            do {
+                let meaning = try describeField(raw, range: range, names: i == 3 ? monthNames : i == 4 ? dayNames : [], hint: hint)
+                fields.append(CronField(name: name, raw: raw, meaning: meaning))
+            } catch {
+                self.error = "❌ \(name): \(error.localizedDescription)"
+                return
+            }
+        }
+
+        let description = buildDescription(fields)
+        result = CronParseResult(description: description, fields: fields)
+        nextDates = computeNextDates(parts: parts, count: 10)
+    }
+
+    // MARK: - Field description
+
+    func describeField(_ raw: String, range: ClosedRange<Int>, names: [String], hint: String) throws -> String {
+        if raw == "*" { return "Every \(hint.components(separatedBy: " ").first ?? "value")" }
+        if raw == "?" { return "Any" }
+
+        // List: a,b,c
+        if raw.contains(",") {
+            let items = try raw.components(separatedBy: ",").map { v -> String in
+                guard let n = Int(v), range.contains(n) else { throw NSError(domain: "Invalid value '\(v)' for range \(hint)", code: 0) }
+                return names.isEmpty ? v : (n < names.count ? names[n] : v)
+            }
+            return items.joined(separator: ", ")
+        }
+
+        // Step: */n or a-b/n
+        if raw.contains("/") {
+            let sides = raw.components(separatedBy: "/")
+            guard sides.count == 2, let step = Int(sides[1]), step > 0 else {
+                throw NSError(domain: "Invalid step in '\(raw)'", code: 0)
+            }
+            let base = sides[0] == "*" ? "every \(step) (starting \(range.lowerBound))" : "every \(step) from \(sides[0])"
+            return base
+        }
+
+        // Range: a-b
+        if raw.contains("-") {
+            let sides = raw.components(separatedBy: "-")
+            guard sides.count == 2,
+                  let lo = Int(sides[0]), let hi = Int(sides[1]),
+                  range.contains(lo), range.contains(hi) else {
+                throw NSError(domain: "Invalid range '\(raw)' for \(hint)", code: 0)
+            }
+            let loStr = !names.isEmpty && lo < names.count ? names[lo] : "\(lo)"
+            let hiStr = !names.isEmpty && hi < names.count ? names[hi] : "\(hi)"
+            return "\(loStr) – \(hiStr)"
+        }
+
+        // Plain number
+        guard let n = Int(raw), range.contains(n) else {
+            throw NSError(domain: "Value '\(raw)' out of range \(hint)", code: 0)
+        }
+        return !names.isEmpty && n < names.count && !names[n].isEmpty ? names[n] : "\(n)"
+    }
+
+    // MARK: - Human description
+
+    func buildDescription(_ fields: [CronField]) -> String {
+        let min = fields[0].raw, hr = fields[1].raw
+        let day = fields[2].raw, mon = fields[3].raw, wd = fields[4].raw
+
+        var parts: [String] = []
+
+        // Time part
+        if min == "*" && hr == "*" {
+            parts.append("every minute")
+        } else if min.contains("/") && hr == "*" {
+            let step = min.components(separatedBy: "/").last ?? "?"
+            parts.append("every \(step) minute\(step == "1" ? "" : "s")")
+        } else if hr == "*" {
+            parts.append("at minute \(fields[0].meaning) of every hour")
+        } else {
+            parts.append("at \(fields[1].meaning):\(min == "*" ? "00" : min.count == 1 ? "0\(min)" : min)")
+        }
+
+        // Day/month part
+        let dayAny = day == "*" || day == "?"
+        let monAny = mon == "*" || mon == "?"
+        let wdAny  = wd  == "*" || wd  == "?"
+
+        if !monAny { parts.append("in \(fields[3].meaning)") }
+        if !dayAny { parts.append("on day \(fields[2].meaning)") }
+        if !wdAny  { parts.append("on \(fields[4].meaning)") }
+        if dayAny && monAny && wdAny { parts.append("every day") }
+
+        return parts.joined(separator: ", ").prefix(1).uppercased() + parts.joined(separator: ", ").dropFirst()
+    }
+
+    // MARK: - Next dates
+
+    func computeNextDates(parts: [String], count: Int) -> [Date] {
+        guard parts.count == 5 else { return [] }
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = TimeZone(identifier: "UTC")!
+
+        var dates: [Date] = []
+        var current = Date().addingTimeInterval(60) // start from next minute
+
+        let maxIterations = 200_000
+        var iterations = 0
+
+        while dates.count < count && iterations < maxIterations {
+            iterations += 1
+            let comps = cal.dateComponents([.minute, .hour, .day, .month, .weekday], from: current)
+            guard let minute  = comps.minute,
+                  let hour    = comps.hour,
+                  let day     = comps.day,
+                  let month   = comps.month,
+                  let weekday = comps.weekday else { break }
+
+            let wd = weekday - 1 // Calendar uses 1=Sun..7=Sat; cron uses 0=Sun..6=Sat
+
+            if matchField(parts[0], value: minute,  range: 0...59) &&
+               matchField(parts[1], value: hour,    range: 0...23) &&
+               matchField(parts[2], value: day,     range: 1...31) &&
+               matchField(parts[3], value: month,   range: 1...12) &&
+               matchField(parts[4], value: wd,      range: 0...6) {
+                dates.append(current)
+                current = current.addingTimeInterval(60)
+            } else {
+                current = current.addingTimeInterval(60)
+            }
+        }
+
+        return dates
+    }
+
+    func matchField(_ field: String, value: Int, range: ClosedRange<Int>) -> Bool {
+        if field == "*" || field == "?" { return true }
+
+        // List
+        if field.contains(",") {
+            return field.components(separatedBy: ",").contains { matchSingle($0, value: value, range: range) }
+        }
+        return matchSingle(field, value: value, range: range)
+    }
+
+    func matchSingle(_ part: String, value: Int, range: ClosedRange<Int>) -> Bool {
+        // Step
+        if part.contains("/") {
+            let sides = part.components(separatedBy: "/")
+            guard sides.count == 2, let step = Int(sides[1]), step > 0 else { return false }
+            let start: Int
+            if sides[0] == "*" { start = range.lowerBound }
+            else if let s = Int(sides[0]) { start = s }
+            else { return false }
+            return value >= start && (value - start) % step == 0
+        }
+        // Range
+        if part.contains("-") {
+            let sides = part.components(separatedBy: "-")
+            guard sides.count == 2, let lo = Int(sides[0]), let hi = Int(sides[1]) else { return false }
+            return value >= lo && value <= hi
+        }
+        // Plain
+        return Int(part) == value
+    }
+
+    // MARK: - Formatting
+
+    func formatDate(_ date: Date) -> String {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy-MM-dd  HH:mm"
+        f.timeZone = TimeZone(identifier: "UTC")
+        return f.string(from: date)
+    }
+
+    func relativeTime(_ date: Date) -> String {
+        let secs = Int(date.timeIntervalSinceNow)
+        if secs < 60 { return "in \(secs)s" }
+        let mins = secs / 60
+        if mins < 60 { return "in \(mins)m" }
+        let hrs = mins / 60
+        if hrs < 24 { return "in \(hrs)h \(mins % 60)m" }
+        return "in \(hrs / 24)d"
+    }
+
+    func copy(_ s: String) {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(s, forType: .string)
+    }
+
+    // MARK: - Presets
+
+    static let presets: [(String, String)] = [
+        ("Every minute",         "* * * * *"),
+        ("Every 5 minutes",      "*/5 * * * *"),
+        ("Every 15 minutes",     "*/15 * * * *"),
+        ("Every 30 minutes",     "*/30 * * * *"),
+        ("Every hour",           "0 * * * *"),
+        ("Every day at midnight","0 0 * * *"),
+        ("Every day at noon",    "0 12 * * *"),
+        ("Every Sunday",         "0 0 * * 0"),
+        ("Every weekday (9 am)", "0 9 * * 1-5"),
+        ("Every month (1st)",    "0 0 1 * *"),
+        ("Every year (Jan 1st)", "0 0 1 1 *"),
+        ("Every 6 hours",        "0 */6 * * *"),
+    ]
+}
+
+// MARK: - Cron model types
+
+struct CronField {
+    let name: String
+    let raw: String
+    let meaning: String
+}
+
+struct CronParseResult {
+    let description: String
+    let fields: [CronField]
+}

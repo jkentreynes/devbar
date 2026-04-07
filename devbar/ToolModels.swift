@@ -12,6 +12,9 @@ enum ToolCategory: String, CaseIterable {
     case recent = "Recent"
     case encodingDecoding = "Encoding & Decoding"
     case hashingSecurity = "Hashing & Security"
+    case formattersValidators = "Formatters & Validators"
+    case converters = "Converters"
+    case textStringUtilities = "Text & String Utilities"
 }
 
 struct DevTool: Identifiable, Hashable {
@@ -33,6 +36,7 @@ struct DevTool: Identifiable, Hashable {
 
 enum ToolType {
     // Encoding & Decoding
+    case cronExpressionParser
     case base64Encoder
     case base64Decoder
     case urlEncoder
@@ -53,6 +57,40 @@ enum ToolType {
     case pbkdf2Hash
     case uuidGenerator
     case passwordGenerator
+    
+    // Formatters & Validators
+    case jsonFormatter
+    case jsonMinifier
+    case xmlFormatter
+    case yamlFormatter
+    case sqlFormatter
+    case graphqlFormatter
+    case tomlFormatter
+    case csvFormatter
+    case markdownPreview
+    case htmlFormatter
+    case cssFormatter
+
+    // Text & String Utilities
+    case caseConverter
+    case lineSorter
+    case duplicateLineRemover
+    case regexTester
+    case wordCharCounter
+    case textDiffViewer
+    case loremIpsumGenerator
+    case slugGenerator
+    case jsonEscapeUnescape
+
+    // Converters
+    case jsonYamlConverter
+    case xmlJsonConverter
+    case jsonCsvConverter
+    case numberBaseConverter
+    case unixTimestampConverter
+    case colorConverter
+    case cssUnitsConverter
+    case csvMarkdownConverter
 }
 
 class DevToolsData: ObservableObject {
@@ -61,6 +99,7 @@ class DevToolsData: ObservableObject {
     
     let allTools: [DevTool] = [
         // ENCODING & DECODING
+        DevTool(name: "Cron Expression Parser", icon: "clock.badge.checkmark", iconColor: .blue, category: .encodingDecoding, view: .cronExpressionParser),
         DevTool(name: "Base64 Encoder", icon: "arrow.up.doc", iconColor: .blue, category: .encodingDecoding, view: .base64Encoder),
         DevTool(name: "Base64 Decoder", icon: "arrow.down.doc", iconColor: .blue, category: .encodingDecoding, view: .base64Decoder),
         DevTool(name: "URL Encoder", icon: "link.badge.plus", iconColor: .blue, category: .encodingDecoding, view: .urlEncoder),
@@ -81,6 +120,40 @@ class DevToolsData: ObservableObject {
         DevTool(name: "PBKDF2 Hash", icon: "lock.rotation", iconColor: .green, category: .hashingSecurity, view: .pbkdf2Hash),
         DevTool(name: "UUID Generator", icon: "number.square", iconColor: .green, category: .hashingSecurity, view: .uuidGenerator),
         DevTool(name: "Password Generator", icon: "key.fill", iconColor: .green, category: .hashingSecurity, view: .passwordGenerator),
+        
+        // TEXT & STRING UTILITIES
+        DevTool(name: "Case Converter",          icon: "textformat",                   iconColor: .teal, category: .textStringUtilities, view: .caseConverter),
+        DevTool(name: "Line Sorter",             icon: "arrow.up.arrow.down",          iconColor: .teal, category: .textStringUtilities, view: .lineSorter),
+        DevTool(name: "Duplicate Line Remover",  icon: "line.3.horizontal.decrease",   iconColor: .teal, category: .textStringUtilities, view: .duplicateLineRemover),
+        DevTool(name: "Regex Tester",            icon: "magnifyingglass",              iconColor: .teal, category: .textStringUtilities, view: .regexTester),
+        DevTool(name: "Word & Char Counter",     icon: "character.cursor.ibeam",       iconColor: .teal, category: .textStringUtilities, view: .wordCharCounter),
+        DevTool(name: "Text Diff Viewer",        icon: "doc.text.magnifyingglass",     iconColor: .teal, category: .textStringUtilities, view: .textDiffViewer),
+        DevTool(name: "Lorem Ipsum Generator",   icon: "text.alignleft",               iconColor: .teal, category: .textStringUtilities, view: .loremIpsumGenerator),
+        DevTool(name: "Slug Generator",          icon: "link",                         iconColor: .teal, category: .textStringUtilities, view: .slugGenerator),
+        DevTool(name: "JSON Escape / Unescape",  icon: "curlybraces",                  iconColor: .teal, category: .textStringUtilities, view: .jsonEscapeUnescape),
+
+        // CONVERTERS
+        DevTool(name: "JSON ↔ YAML", icon: "arrow.left.arrow.right", iconColor: .purple, category: .converters, view: .jsonYamlConverter),
+        DevTool(name: "XML ↔ JSON", icon: "chevron.left.forwardslash.chevron.right", iconColor: .purple, category: .converters, view: .xmlJsonConverter),
+        DevTool(name: "JSON ↔ CSV", icon: "tablecells", iconColor: .purple, category: .converters, view: .jsonCsvConverter),
+        DevTool(name: "Number Base Converter", icon: "number.circle.fill", iconColor: .purple, category: .converters, view: .numberBaseConverter),
+        DevTool(name: "Unix Timestamp Converter", icon: "clock", iconColor: .purple, category: .converters, view: .unixTimestampConverter),
+        DevTool(name: "Color Converter", icon: "paintpalette", iconColor: .purple, category: .converters, view: .colorConverter),
+        DevTool(name: "CSS Units Converter", icon: "ruler", iconColor: .purple, category: .converters, view: .cssUnitsConverter),
+        DevTool(name: "CSV ↔ Markdown Table", icon: "arrow.left.arrow.right", iconColor: .purple, category: .converters, view: .csvMarkdownConverter),
+
+        // FORMATTERS & VALIDATORS
+        DevTool(name: "JSON Formatter", icon: "curlybraces", iconColor: .orange, category: .formattersValidators, view: .jsonFormatter),
+        DevTool(name: "JSON Minifier", icon: "arrow.down.right.and.arrow.up.left", iconColor: .orange, category: .formattersValidators, view: .jsonMinifier),
+        DevTool(name: "XML Formatter", icon: "chevron.left.forwardslash.chevron.right", iconColor: .orange, category: .formattersValidators, view: .xmlFormatter),
+        DevTool(name: "YAML Formatter", icon: "doc.text", iconColor: .orange, category: .formattersValidators, view: .yamlFormatter),
+        DevTool(name: "SQL Formatter", icon: "cylinder", iconColor: .orange, category: .formattersValidators, view: .sqlFormatter),
+        DevTool(name: "GraphQL Formatter", icon: "arrow.triangle.branch", iconColor: .orange, category: .formattersValidators, view: .graphqlFormatter),
+        DevTool(name: "TOML Formatter", icon: "doc.plaintext", iconColor: .orange, category: .formattersValidators, view: .tomlFormatter),
+        DevTool(name: "CSV Formatter", icon: "tablecells", iconColor: .orange, category: .formattersValidators, view: .csvFormatter),
+        DevTool(name: "Markdown Preview", icon: "doc.richtext", iconColor: .orange, category: .formattersValidators, view: .markdownPreview),
+        DevTool(name: "HTML Formatter", icon: "globe", iconColor: .orange, category: .formattersValidators, view: .htmlFormatter),
+        DevTool(name: "CSS Formatter", icon: "paintbrush", iconColor: .orange, category: .formattersValidators, view: .cssFormatter),
     ]
     
     var filteredTools: [DevTool] {
