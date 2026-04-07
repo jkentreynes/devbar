@@ -1,0 +1,16 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/SidebarView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Search tools...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 20
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,408 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsConverterViews.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "JSON",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "JSON → YAML",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "YAML",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "← YAML → JSON",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "XML",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 332
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "XML → JSON",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 348
+        }
+      },
+      {
+        "comment": "",
+        "key": "JSON",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 355
+        }
+      },
+      {
+        "comment": "",
+        "key": "Root tag:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 359
+        }
+      },
+      {
+        "comment": "",
+        "key": "root",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 360
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 364
+        }
+      },
+      {
+        "comment": "",
+        "key": "← JSON → XML",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 376
+        }
+      },
+      {
+        "comment": "",
+        "key": "JSON (array of objects)",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 454
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 458
+        }
+      },
+      {
+        "comment": "",
+        "key": "JSON → CSV",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 470
+        }
+      },
+      {
+        "comment": "",
+        "key": "CSV",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 477
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 481
+        }
+      },
+      {
+        "comment": "",
+        "key": "← CSV → JSON",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 493
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 597
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter number…",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 601
+        }
+      },
+      {
+        "comment": "",
+        "key": "Base",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 605
+        }
+      },
+      {
+        "comment": "",
+        "key": "Convert",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 612
+        }
+      },
+      {
+        "comment": "",
+        "key": "Use Now",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 711
+        }
+      },
+      {
+        "comment": "",
+        "key": "Current Unix Timestamp",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 706
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 707
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unix Timestamp → Date",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 723
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g. 1712345678 or 1712345678000",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 727
+        }
+      },
+      {
+        "comment": "",
+        "key": "Convert",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 730
+        }
+      },
+      {
+        "comment": "",
+        "key": "Formats: yyyy-MM-dd HH:mm:ss  •  yyyy-MM-dd  •  ISO 8601",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 760
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date → Unix Timestamp",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 758
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g. 2024-04-05 12:00:00",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 764
+        }
+      },
+      {
+        "comment": "",
+        "key": "Convert",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 766
+        }
+      },
+      {
+        "comment": "",
+        "key": "#RRGGBB",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 879
+        }
+      },
+      {
+        "comment": "",
+        "key": "Apply",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 882
+        }
+      },
+      {
+        "comment": "",
+        "key": "Apply",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 895
+        }
+      },
+      {
+        "comment": "",
+        "key": "Apply",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 908
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 934
+        }
+      },
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1052
+        }
+      },
+      {
+        "comment": "",
+        "key": "Value",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1067
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unit",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 1072
+        }
+      },
+      {
+        "comment": "",
+        "key": "Convert",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 1077
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 1119
+        }
+      },
+      {
+        "comment": "",
+        "key": "CSV",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1192
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1196
+        }
+      },
+      {
+        "comment": "",
+        "key": "CSV → Markdown Table",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1208
+        }
+      },
+      {
+        "comment": "",
+        "key": "Markdown Table",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1215
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1219
+        }
+      },
+      {
+        "comment": "",
+        "key": "← Markdown → CSV",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1231
+        }
+      }
+    ]
+  },
+  "version": 1
+}

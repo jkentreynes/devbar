@@ -1,0 +1,12 @@
+{
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ContentView.swift" : {
+    "abi-baseline-json" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar.abi.json",
+    "const-values" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.swiftconstvalues",
+    "dependencies" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.d",
+    "diagnostics" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.dia",
+    "objc-header" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-Swift.h",
+    "swiftdoc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar.swiftdoc",
+    "swiftmodule" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar.swiftmodule",
+    "swiftsourceinfo" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar.swiftsourceinfo"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsReferenceViews.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Search status codes...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 93
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search ports...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search MIME types...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 254
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search colors...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 405
+        }
+      }
+    ]
+  },
+  "version": 1
+}

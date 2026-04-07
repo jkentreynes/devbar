@@ -1,0 +1,672 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsTextStringUtilitiesViews.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Convert To",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld lines",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sort type",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 214
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 215
+        }
+      },
+      {
+        "comment": "",
+        "key": "Alphabetical",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 216
+        }
+      },
+      {
+        "comment": "",
+        "key": "By length",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 217
+        }
+      },
+      {
+        "comment": "",
+        "key": "Numeric",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 218
+        }
+      },
+      {
+        "comment": "",
+        "key": "Order",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 222
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "A → Z  /  ↑",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 224
+        }
+      },
+      {
+        "comment": "",
+        "key": "Z → A  /  ↓",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "Options",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "Case sensitive",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 231
+        }
+      },
+      {
+        "comment": "",
+        "key": "Remove empty lines",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 232
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sort Lines",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 237
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 247
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld lines",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 307
+        }
+      },
+      {
+        "comment": "",
+        "key": "Case sensitive",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 327
+        }
+      },
+      {
+        "comment": "",
+        "key": "Trim whitespace before comparing",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 328
+        }
+      },
+      {
+        "comment": "",
+        "key": "Remove Duplicates",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 331
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld duplicate%@ removed",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 345
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 342
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 354
+        }
+      },
+      {
+        "comment": "",
+        "key": "/",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 407
+        }
+      },
+      {
+        "comment": "",
+        "key": "/",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 414
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld match%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 427
+        }
+      },
+      {
+        "comment": "",
+        "key": "No matches",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 432
+        }
+      },
+      {
+        "comment": "",
+        "key": "regular expression…",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 410
+        }
+      },
+      {
+        "comment": "",
+        "key": "i",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 417
+        }
+      },
+      {
+        "comment": "",
+        "key": "Case insensitive",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 419
+        }
+      },
+      {
+        "comment": "",
+        "key": "m",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 421
+        }
+      },
+      {
+        "comment": "",
+        "key": "Multiline (^ and $ match line starts/ends)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 423
+        }
+      },
+      {
+        "comment": "",
+        "key": "Test String",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 450
+        }
+      },
+      {
+        "comment": "",
+        "key": "Matches",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 463
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter a pattern to test",
+        "location": {
+          "startingColumn": 48,
+          "startingLine": 469
+        }
+      },
+      {
+        "comment": "",
+        "key": "No matches found",
+        "location": {
+          "startingColumn": 92,
+          "startingLine": 469
+        }
+      },
+      {
+        "comment": "",
+        "key": "Fix the pattern error",
+        "location": {
+          "startingColumn": 113,
+          "startingLine": 469
+        }
+      },
+      {
+        "comment": "",
+        "key": "… %lld more (showing first 100)",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 504
+        }
+      },
+      {
+        "comment": "",
+        "key": "Match %lld",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 479
+        }
+      },
+      {
+        "comment": "",
+        "key": "Group %lld:",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 491
+        }
+      },
+      {
+        "comment": "",
+        "key": "Paste text in both panels and click Compare",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 696
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 619
+        }
+      },
+      {
+        "comment": "",
+        "key": "Modified",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 629
+        }
+      },
+      {
+        "comment": "",
+        "key": "+%lld",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 651
+        }
+      },
+      {
+        "comment": "",
+        "key": "-%lld",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 653
+        }
+      },
+      {
+        "comment": "",
+        "key": "Compare",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 646
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy diff",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 657
+        }
+      },
+      {
+        "comment": "",
+        "key": "+",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 672
+        }
+      },
+      {
+        "comment": "",
+        "key": "−",
+        "location": {
+          "startingColumn": 90,
+          "startingLine": 672
+        }
+      },
+      {
+        "comment": "",
+        "key": " ",
+        "location": {
+          "startingColumn": 98,
+          "startingLine": 672
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start with \"Lorem ipsum...\"",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 803
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 789
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 790
+        }
+      },
+      {
+        "comment": "",
+        "key": "Paragraphs",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 791
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sentences",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 792
+        }
+      },
+      {
+        "comment": "",
+        "key": "Words",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 793
+        }
+      },
+      {
+        "comment": "",
+        "key": "Count",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 799
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 800
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 808
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 818
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 822
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 894
+        }
+      },
+      {
+        "comment": "",
+        "key": "Lowercase",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 920
+        }
+      },
+      {
+        "comment": "",
+        "key": "Separator",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 912
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 913
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hyphen  (-)",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 914
+        }
+      },
+      {
+        "comment": "",
+        "key": "Underscore  (_)",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 915
+        }
+      },
+      {
+        "comment": "",
+        "key": "Slug",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 932
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 936
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 992
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 989
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wrap escaped output in quotes",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 1007
+        }
+      },
+      {
+        "comment": "",
+        "key": "Escape →",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1010
+        }
+      },
+      {
+        "comment": "",
+        "key": "← Unescape",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1013
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1027
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1024
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1029
+        }
+      }
+    ]
+  },
+  "version": 1
+}

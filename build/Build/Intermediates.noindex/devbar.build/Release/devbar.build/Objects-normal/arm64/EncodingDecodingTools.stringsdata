@@ -1,0 +1,200 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/EncodingDecodingTools.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 148
+        }
+      },
+      {
+        "comment": "",
+        "key": "JWT Token",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 144
+        }
+      },
+      {
+        "comment": "",
+        "key": "Text Input",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 274
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 386
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 382
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mode",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 406
+        }
+      },
+      {
+        "comment": "",
+        "key": "Encode to Morse",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 407
+        }
+      },
+      {
+        "comment": "",
+        "key": "Decode from Morse",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 408
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 421
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 430
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 481
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 477
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld chars",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 514
+        }
+      },
+      {
+        "comment": "",
+        "key": "Output",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 510
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 523
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear All",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 533
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cron Expression",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 568
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g.  */5 * * * *",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 572
+        }
+      },
+      {
+        "comment": "",
+        "key": "Parse",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 575
+        }
+      },
+      {
+        "comment": "",
+        "key": "Presets",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 601
+        }
+      },
+      {
+        "comment": "",
+        "key": "Description",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 625
+        }
+      },
+      {
+        "comment": "",
+        "key": "Field Breakdown",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 640
+        }
+      },
+      {
+        "comment": "",
+        "key": "Next 10 Scheduled Runs  (from now, UTC)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 670
+        }
+      },
+      {
+        "comment": "",
+        "key": "#%lld",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 676
+        }
+      }
+    ]
+  },
+  "version": 1
+}

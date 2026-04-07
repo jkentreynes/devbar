@@ -1,0 +1,146 @@
+{
+  "" : {
+    "const-values" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.swiftconstvalues",
+    "dependencies" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.d",
+    "diagnostics" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.dia",
+    "emit-module-dependencies" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary-emit-module.dia",
+    "pch" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbar-primary.swiftdeps"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ContentView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/DevbarToolDetailView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/DevbarToolDetailView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/DevbarToolDetailView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/DevbarToolDetailView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/EncodingDecodingTools.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/EncodingDecodingTools.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/EncodingDecodingTools.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/EncodingDecodingTools.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/HashingSecurityTools.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/HashingSecurityTools.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/HashingSecurityTools.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/HashingSecurityTools.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ModelsTool.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ModelsTool.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ModelsTool.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ModelsTool.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/SidebarView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/SidebarView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/SidebarView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/SidebarView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/Tool.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/Tool.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/Tool.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/Tool.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ToolDetailView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolDetailView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolDetailView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolDetailView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ToolModels.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolModels.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolModels.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ToolModels.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsConverterAndUtilityViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterAndUtilityViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterAndUtilityViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterAndUtilityViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsConverterViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsConverterViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsEncoderDecoderView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsEncoderDecoderView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsEncoderDecoderView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsEncoderDecoderView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsFormatterViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsFormatterViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsFormatterViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsFormatterViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsGeneratorViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsGeneratorViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsGeneratorViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsGeneratorViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsHashingViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsHashingViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsHashingViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsHashingViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsReferenceViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsReferenceViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsReferenceViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsReferenceViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsSidebarView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsSidebarView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsSidebarView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsSidebarView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsTextStringUtilitiesViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextStringUtilitiesViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextStringUtilitiesViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextStringUtilitiesViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsTextUtilityViews.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextUtilityViews.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextUtilityViews.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsTextUtilityViews.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolDetailView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolDetailView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolDetailView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolDetailView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolsBase64View.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsBase64View.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsBase64View.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsBase64View.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolsHashGeneratorView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsHashGeneratorView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsHashGeneratorView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsHashGeneratorView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolsJSONFormatterView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsJSONFormatterView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsJSONFormatterView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsJSONFormatterView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolsURLEncodeView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsURLEncodeView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsURLEncodeView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsURLEncodeView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/ViewsToolsUUIDGeneratorView.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsUUIDGeneratorView.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsUUIDGeneratorView.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/ViewsToolsUUIDGeneratorView.o"
+  },
+  "/Users/johnkentreynes/Projects/personal/devbar/devbar/devbarApp.swift" : {
+    "index-unit-output-path" : "/devbar.build/Release/devbar.build/Objects-normal/arm64/devbarApp.o",
+    "llvm-bc" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbarApp.bc",
+    "object" : "/Users/johnkentreynes/Projects/personal/devbar/build/Build/Intermediates.noindex/devbar.build/Release/devbar.build/Objects-normal/arm64/devbarApp.o"
+  }
+}

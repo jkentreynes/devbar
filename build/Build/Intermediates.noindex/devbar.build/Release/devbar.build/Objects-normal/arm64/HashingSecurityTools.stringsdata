@@ -1,0 +1,472 @@
+{
+  "source": "/Users/johnkentreynes/Projects/personal/devbar/devbar/HashingSecurityTools.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "MD5 Hash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "SHA-1 Hash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 121
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 162
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 165
+        }
+      },
+      {
+        "comment": "",
+        "key": "SHA-256 Hash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 191
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 232
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 235
+        }
+      },
+      {
+        "comment": "",
+        "key": "SHA-512 Hash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 258
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 261
+        }
+      },
+      {
+        "comment": "",
+        "key": "Secret Key",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 330
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter secret key",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 334
+        }
+      },
+      {
+        "comment": "",
+        "key": "Input",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 313
+        }
+      },
+      {
+        "comment": "",
+        "key": "Algorithm",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 342
+        }
+      },
+      {
+        "comment": "",
+        "key": "Algorithm",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 344
+        }
+      },
+      {
+        "comment": "",
+        "key": "HMAC",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 363
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 366
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 434
+        }
+      },
+      {
+        "comment": "",
+        "key": "Salt",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 445
+        }
+      },
+      {
+        "comment": "",
+        "key": "Iterations",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 456
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter password",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 438
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter salt",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 449
+        }
+      },
+      {
+        "comment": "",
+        "key": "Iterations",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 460
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 467
+        }
+      },
+      {
+        "comment": "",
+        "key": "Configuration",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 421
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 424
+        }
+      },
+      {
+        "comment": "",
+        "key": "PBKDF2 Hash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 479
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 482
+        }
+      },
+      {
+        "comment": "",
+        "key": "Configuration",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 545
+        }
+      },
+      {
+        "comment": "",
+        "key": "UUID Version",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 548
+        }
+      },
+      {
+        "comment": "",
+        "key": "Count:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 560
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 561
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 565
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 570
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generated UUIDs (%lld)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 583
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy All",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 586
+        }
+      },
+      {
+        "comment": "",
+        "key": "No UUIDs generated yet",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 602
+        }
+      },
+      {
+        "comment": "",
+        "key": "Click 'Generate' to create UUIDs",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 605
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 44,
+          "startingLine": 619
+        }
+      },
+      {
+        "comment": "",
+        "key": "Configuration",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 673
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate Password",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 693
+        }
+      },
+      {
+        "comment": "",
+        "key": "Length: %lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 677
+        }
+      },
+      {
+        "comment": "",
+        "key": "Character Types",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 683
+        }
+      },
+      {
+        "comment": "",
+        "key": "Uppercase (A-Z)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 686
+        }
+      },
+      {
+        "comment": "",
+        "key": "Lowercase (a-z)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 687
+        }
+      },
+      {
+        "comment": "",
+        "key": "Numbers (0-9)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 688
+        }
+      },
+      {
+        "comment": "",
+        "key": "Symbols (!@#$%...)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 689
+        }
+      },
+      {
+        "comment": "",
+        "key": "Exclude Ambiguous (0, O, l, I)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 690
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generated Password",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 706
+        }
+      },
+      {
+        "comment": "",
+        "key": "Copy",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 709
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password Strength",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 729
+        }
+      }
+    ]
+  },
+  "version": 1
+}

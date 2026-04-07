@@ -21,6 +21,7 @@ struct devbarApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate {
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
+    var eventMonitor: Any?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Create the popover
@@ -33,11 +34,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Create the status bar item
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        
+
         if let button = self.statusBarItem.button {
             button.image = NSImage(systemSymbolName: "wrench.and.screwdriver.fill", accessibilityDescription: "Devbar")
             button.action = #selector(togglePopover(_:))
             button.target = self
+        }
+
+        // Close popover when clicking outside
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+            guard let self, self.popover.isShown else { return }
+            self.popover.close()
         }
     }
     

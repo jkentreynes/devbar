@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/johnkentreynes/Projects/personal/devbar/build/Build/Products/Release/devbar.app/Contents/MacOS/devbar'
+relocations:     []
+...
